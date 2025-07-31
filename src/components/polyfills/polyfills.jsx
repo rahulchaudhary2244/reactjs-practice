@@ -1,5 +1,6 @@
 import {
   customFilterPolyFill,
+  customFlatPolyFill,
   customIncludesPolyFill,
   customMapPolyFill,
   customReducePolyFill,
@@ -13,6 +14,7 @@ export const Polyfills = () => {
         customReducePolyFill,
         customFilterPolyFill,
         customIncludesPolyFill,
+        customFlatPolyFill,
       })}
     </div>
   );

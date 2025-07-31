@@ -45,3 +45,23 @@ Array.prototype.customIncludes = function (key) {
   return false;
 };
 export const customIncludesPolyFill = [1, 2, 3, 4].customIncludes(3);
+
+Array.prototype.customFlat = function (depth = 1) {
+  let result = [];
+
+  const flatArray = (arr, currDepth) => {
+    for (let i = 0; i < arr.length; i++) {
+      const ele = arr[i];
+      if (Array.isArray(ele) && currDepth < depth) {
+        flatArray(ele, currDepth + 1);
+      } else {
+        result.push(ele);
+      }
+    }
+  };
+
+  flatArray(this, 0);
+
+  return result;
+};
+export const customFlatPolyFill = [1, [null, [undefined]], [2, [3, 4], 5]].customFlat(0);
