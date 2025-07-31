@@ -1,5 +1,11 @@
+import { Polyfills } from './components/polyfills/polyfills';
+
 const App = () => {
-  return <div></div>;
+  return (
+    <div>
+      <Polyfills />
+    </div>
+  );
 };
 
 export default App;
