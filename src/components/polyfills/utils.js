@@ -65,3 +65,45 @@ Array.prototype.customFlat = function (depth = 1) {
   return result;
 };
 export const customFlatPolyFill = [1, [null, [undefined]], [2, [3, 4], 5]].customFlat(0);
+
+Promise.prototype.customAll = function (promises = []) {
+  return new Promise((res, rej) => {
+    const result = [];
+
+    promises.forEach((p, idx) => {
+      Promise.resolve(p)
+        .then((value) => {
+          result[idx] = value;
+          if (result.length === promises.length) {
+            res(result);
+          }
+        })
+        .catch(rej);
+    });
+  });
+};
+
+Promise.prototype.customRace = function (promises = []) {
+  return new Promise((res, rej) => {
+    promises.forEach((p) => {
+      Promise.resolve(p).then(res).catch(rej);
+    });
+  });
+};
+
+Promise.prototype.customAny = function (promises = []) {
+  return new Promise((res, rej) => {
+    const rejected = [];
+
+    promises.forEach((p, idx) => {
+      Promise.resolve(p)
+        .then(res)
+        .catch((err) => {
+          rejected[idx] = err;
+          if (rejected.length === promises.length) {
+            rej(new Error(rejected, 'All promises were rejected'));
+          }
+        });
+    });
+  });
+};
