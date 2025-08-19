@@ -1,9 +1,11 @@
+import { HocExample } from './components/hoc/hoc';
 import { Polyfills } from './components/polyfills/polyfills';
 
 const App = () => {
   return (
     <div>
-      <Polyfills />
+      {/* <Polyfills />
+      <HocExample /> */}
     </div>
   );
 };
