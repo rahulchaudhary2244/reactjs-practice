@@ -2,6 +2,8 @@ import { useState } from 'react';
 
 const OVER_SCAN = 1;
 
+//tutorial - https://youtu.be/IFBq4j6htpE?si=Z5mtpunrMrYDhNSv
+
 export const VirtualizedList = ({ containerHeight, containerWidth, itemHeight, list = [] }) => {
   const vissibleElementsInContainer = Math.floor(containerHeight / itemHeight);
   const [indices, setIndices] = useState([0, vissibleElementsInContainer]);
