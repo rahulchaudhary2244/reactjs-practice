@@ -1,3 +1,4 @@
+import { DeferredHook } from './components/concurrent-hooks-example/deferred-hook';
 import { TransitionHook } from './components/concurrent-hooks-example/transition-hook';
 import { HocExample } from './components/hoc/hoc';
 import { ImageCarousel } from './components/image-carousel/image-carousel';
@@ -14,6 +15,7 @@ const App = () => {
       {/* <VirtualizedListExample /> */}
       {/* <ImageCarousel /> */}
       {/* <TransitionHook /> */}
+      {/* <DeferredHook /> */}
     </div>
   );
 };

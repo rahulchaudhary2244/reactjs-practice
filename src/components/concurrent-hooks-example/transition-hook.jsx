@@ -1,5 +1,6 @@
 import { useState, useTransition } from 'react';
-import { fetchUsers } from './utils';
+import { USERS } from './users';
+import { sleep } from '../../lib/utils';
 
 export const TransitionHook = () => {
   const [query, setQuery] = useState('');
@@ -13,31 +14,20 @@ export const TransitionHook = () => {
 
     // non-urgent update (can be delayed if react is busy)
     startTransition(async () => {
-      const users = await fetchUsers();
-      const filteredUsers = users.filter(({ name, username, email, website }) => {
-        return [name, username, email, website].some((x) =>
-          x.toLowerCase().includes(value.toLowerCase())
-        );
-      });
+      await sleep(3000);
+      const filteredUsers = USERS.filter(({ name }) =>
+        name.toLowerCase().includes(value.toLowerCase())
+      );
       setResults(filteredUsers);
     });
   };
 
   return (
     <div>
-      <p>
-        API ={' '}
-        <a
-          className="underline text-blue-500"
-          href="https://jsonplaceholder.typicode.com/users"
-          target="_blank"
-        >
-          https://jsonplaceholder.typicode.com/users
-        </a>
-      </p>
-
-      <label htmlFor="input">Search by name, username, email, website</label>
-      <input id="input" className="p-3 border m-3" value={query} onChange={handleChange} />
+      <div className="border p-3">
+        <label htmlFor="input">Search by name</label>
+        <input id="input" className="p-3 border m-3" value={query} onChange={handleChange} />
+      </div>
 
       {isPending ? (
         <div>Loading...</div>
