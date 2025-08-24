@@ -1,3 +1,4 @@
+import { TransitionHook } from './components/concurrent-hooks-example/transition-hook';
 import { HocExample } from './components/hoc/hoc';
 import { ImageCarousel } from './components/image-carousel/image-carousel';
 import { InfiniteScrollWithPosts } from './components/infinite-scroll-with-posts/infinite-scroll-with-posts';
@@ -12,6 +13,7 @@ const App = () => {
       {/* <InfiniteScrollWithPosts /> */}
       {/* <VirtualizedListExample /> */}
       {/* <ImageCarousel /> */}
+      {/* <TransitionHook /> */}
     </div>
   );
 };
