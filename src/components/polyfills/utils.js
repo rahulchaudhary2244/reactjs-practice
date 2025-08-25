@@ -107,3 +107,20 @@ Promise.prototype.customAny = function (promises = []) {
     });
   });
 };
+
+export const deepCopy = function (obj) {
+  // primitives
+  if (obj === null || typeof obj !== 'object') return obj;
+
+  // arr
+  if (Array.isArray(obj)) {
+    return obj.map((x) => deepCopy(x));
+  }
+
+  // object
+  const result = {};
+  for (const [key, value] of Object.entries(obj)) {
+    result[key] = deepCopy(value);
+  }
+  return result;
+};
