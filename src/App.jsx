@@ -1,4 +1,5 @@
 import { DeferredHook } from './components/concurrent-hooks-example/deferred-hook';
+import { OptimisticHook } from './components/concurrent-hooks-example/optimistic-hook';
 import { TransitionHook } from './components/concurrent-hooks-example/transition-hook';
 import { HocExample } from './components/hoc/hoc';
 import { ImageCarousel } from './components/image-carousel/image-carousel';
@@ -16,6 +17,7 @@ const App = () => {
       {/* <ImageCarousel /> */}
       {/* <TransitionHook /> */}
       {/* <DeferredHook /> */}
+      {/* <OptimisticHook /> */}
     </div>
   );
 };
