@@ -101,7 +101,7 @@ Promise.prototype.customAny = function (promises = []) {
         .catch((err) => {
           rejected[idx] = err;
           if (rejected.length === promises.length) {
-            rej(new Error(rejected, 'All promises were rejected'));
+            rej(new Error(rejected, 'All promises were rejected & throws Aggregate error'));
           }
         });
     });
