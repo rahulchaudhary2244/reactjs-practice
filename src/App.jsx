@@ -7,6 +7,7 @@ import { ImageCarousel } from './components/image-carousel/image-carousel';
 import { InfiniteScrollWithPosts } from './components/infinite-scroll-with-posts/infinite-scroll-with-posts';
 import { NestedCheckboxes } from './components/nested-checkboxes';
 import { Polyfills } from './components/polyfills/polyfills';
+import { ToastsExample } from './components/toasts/toasts-example';
 import { VirtualizedListExample } from './components/virtualized-list-example/virtualized-list-example';
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
       {/* <OptimisticHook /> */}
       {/* <DotsLoader/> */}
       {/* <NestedCheckboxes /> */}
+      {/* <ToastsExample /> */}
     </div>
   );
 };
